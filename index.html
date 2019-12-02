@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center"><span class="text-danger">TIC</span> <span class="text-success">TAC</span> <span class="text-primary">TOE</span></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <button class="btn btn-primary btn-block active" id="playerOne">X - Player One</button>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <button class="btn btn-primary btn-block" id="playerTwo">O - Player Two</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col congrats-wrapper">
+                                <h5 class="text-center text-info" id="congrats-msg"></h5>
+                                <!-- <button class="btn btn-success btn-block">Restart</button> -->
+                            </div>
+                        </div>
+                        <div class="custom-row mt-5">
+                            <div class="col-md-4 py-4" data-index="0"></div>
+                            <div class="col-md-4 py-4" data-index="1"></div>
+                            <div class="col-md-4 py-4" data-index="2"></div>
+                        </div>
+                        <div class="custom-row">
+                            <div class="col-md-4 py-4" data-index="3"></div>
+                            <div class="col-md-4 py-4" data-index="4"></div>
+                            <div class="col-md-4 py-4" data-index="5"></div>
+                        </div>
+                        <div class="custom-row mb-4 last-row">
+                            <div class="col-md-4 py-4" data-index="6"></div>
+                            <div class="col-md-4 py-4" data-index="7"></div>
+                            <div class="col-md-4 py-4" data-index="8"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center text-muted">
+                        Copyright &copy; 2019 | michaelOch
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.custom-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.custom-row [class*="col-md-"] {
+    border: 1px solid #007bff;
+    height: 100px;
+}
+
+.custom-row [class*="col-md-"]:first-child {
+    border-top: none;
+    border-left: none;
+}
+
+.custom-row [class*="col-md-"]:nth-child(2) {
+    border-top: none;
+}
+
+.custom-row [class*="col-md-"]:last-child {
+    border-top: none;
+    border-right: none;
+}
+
+.last-row [class*="col-md-"] {
+    border-bottom: none;
+}
