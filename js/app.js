@@ -79,12 +79,14 @@ const DisplayController = (() => {
         playerTwo: document.querySelector('#playerTwo'),
         message: document.querySelector('#congrats-msg'),
         messageContainer: document.querySelector('.congrats-wrapper'),
+        cellWrapper: document.querySelector('.cell-wrapper'),
         cells: document.querySelectorAll('.col-md-4')
     }
 
     const restartBtn = document.createElement('button');
     restartBtn.className = 'btn';
     restartBtn.classList.add('btn-success');
+    restartBtn.classList.add('btn-sm');
     restartBtn.classList.add('btn-block');
     restartBtn.textContent = 'Restart';
 
@@ -109,17 +111,31 @@ const DisplayController = (() => {
             if(GameBoard.checkRowColDiag()) {
                 symbol = GameBoard.checkRowColDiag();
                 if(symbol === Init.firstPlayer.playerSymbol()) {
-                    DOM.message.textContent = `Player One Wins!`;
+                    DOM.messageContainer.innerHTML = `
+                        <h1 class="text-center text-secondary">Congratulations!</h1>
+                        <h4 class="text-center text-info">Player One Wins</h4>
+                    `;
+
                     DOM.messageContainer.appendChild(restartBtn);
+                    DOM.cellWrapper.style.display = 'none';
                 } else {
-                    DOM.message.textContent = `Player Two Wins!`;
+                    DOM.messageContainer.innerHTML = `
+                        <h1 class="text-center text-secondary">Congratulations!</h1>
+                        <h4 class="text-center text-info">Player Two Wins</h4>
+                    `;
+
                     DOM.messageContainer.appendChild(restartBtn);
+                    DOM.cellWrapper.style.display = 'none';
                 }
             }
 
             if(GameBoard.isCellsFull()) {
-                DOM.message.textContent = `It's a Tie!`;
+                DOM.messageContainer.innerHTML = `
+                    <h1 class="text-center text-secondary">OOPS!</h1>
+                    <h4 class="text-center text-info">It's a Tie!</h4>
+                `;
                 DOM.messageContainer.appendChild(restartBtn);
+                DOM.cellWrapper.style.display = 'none';
             } else {
                 // Game.changePlayerTurn();
                 if(Game.changePlayerTurn() === Init.firstPlayer.playerName()) {
@@ -138,11 +154,12 @@ const DisplayController = (() => {
                 cell.innerHTML = '';
             });
             e.target.parentNode.removeChild(restartBtn);
-            DOM.message.textContent = '';
+            DOM.messageContainer.innerHTML = '';
             GameBoard.cells.splice(0, 9);
             DOM.playerOne.classList.add('active');
             DOM.playerTwo.classList.remove('active');
             Game.setPlayerTurn(Init.firstPlayer.playerName());
+            DOM.cellWrapper.style.display = 'block';
         }
     }
 
